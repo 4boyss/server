@@ -4,14 +4,18 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 require("./modules/dataBase/user");
+require("./modules/dataBase/bike")
 
 var app = express();
 
 // Install middleware to parse the request body
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Route handler
 app.use("/api/v1/users", require("./routers/users"));
+
+app.use("/api/o1", require("./routers/index"));
 
 app.get("/", function(req, res) {
   res.send("hello");
