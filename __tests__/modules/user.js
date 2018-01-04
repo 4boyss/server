@@ -25,9 +25,9 @@ describe('UserModel', () => {
 
         UserModel.getByCondition(condition).then(
             (res) => {
-                expect(mock['username:']).toBe(res['username:'])
-                expect(mock['id:']).toBe(res['id:'])
-                expect(mock['name:']).toBe(res['name:'])
+                expect(mock['username']).toBe(res['username'])
+                expect(mock['id']).toBe(res['id'])
+                expect(mock['name']).toBe(res['name'])
                 done()
             },
             (err) => console.log(err)
