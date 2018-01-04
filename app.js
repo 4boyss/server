@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 require("./modules/dataBase/user");
-require("./modules/dataBase/bike")
+require("./modules/dataBase/bikes")
 
 var app = express();
 
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Route handler
 app.use("/api/v1/users", require("./routers/users"));
 
-app.use("/api/v1/index", require("./routers/index"));
+app.use("/api/v1/bikes", require("./routers/bikes"));
 
 app.get("/", function(req, res) {
   res.send("hello");
