@@ -1,14 +1,14 @@
 var express = require('express');
-var router1 = express.Router();
+var router = express.Router();
 var Bike = require('../modules/dataBase/bike');
 
 var mongodb = require('mongodb')
 var MongoClient = mongodb.MongoClient
-var urlMlab = 'mongodb://' + process.env.MONGO_USERNAME + ':' + process.env.MONGO_PASSWORD + process.env.MONGO_URL
+var urlMlab = 'mongodb://' + process.env.MONGO_USERNAME + ':' + process.env.MONGO_PASSWORD + '@' + process.env.MONGO_URL
 
 
 /* GET home page. */
-router1.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
   MongoClient.connect(urlMlab, function(err, client) {
     if(err) {
       res.send('Get error');
@@ -18,7 +18,7 @@ router1.get('/', function(req, res, next) {
 });
 
 /* For Updated user */ //bikeStatus
-router1.put('/update', function(req, res, next) {
+router.put('/', function(req, res, next) {
 
   var UserData;
   
@@ -40,7 +40,7 @@ router1.put('/update', function(req, res, next) {
 });
 
 /* For Delete user */
-router1.delete('/delete', function(req, res, next) {
+router.delete('/', function(req, res, next) {
 
   var UserData;
 
@@ -62,7 +62,7 @@ router1.delete('/delete', function(req, res, next) {
 
 /* For Read User */
 
-router1.post('/read', function(req, res, next) {
+router.post('/', function(req, res, next) {
 
   var UserData;
 
@@ -86,7 +86,7 @@ router1.post('/read', function(req, res, next) {
 });
 
 /* For user registration. */
-router1.post('/register', function(req, res, next) {
+router.post('/', function(req, res, next) {
 
   MongoClient.connect(urlMlab, function(err, client) {
     if(err) {
@@ -100,4 +100,4 @@ router1.post('/register', function(req, res, next) {
 });
 
 
-module.exports = router1;
+module.exports = router;

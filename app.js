@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Route handler
 app.use("/api/v1/users", require("./routers/users"));
 
-app.use("/api/o1", require("./routers/index"));
+app.use("/api/v1/index", require("./routers/index"));
 
 app.get("/", function(req, res) {
   res.send("hello");
